@@ -7,7 +7,7 @@
 } 
 
 ul {
-    list-style-type: none;
+    list-style-type: none !important;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -22,17 +22,16 @@ li {
 }
 
 li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: #FFF;
-    font-family: "lato", sans-serif;
+    display: block !important;
+    text-align: center !important;
+    padding: 14px 16px !important;
+    text-decoration: none !important;
+    color: #FFF !important;
+    font-family: "lato", sans-serif !important;
 }
 
 li a:hover:not(.active) {
-    background-color:#2980b9 ;
+    background-color:#2980b9 !important;
 }
 
 .profile{
