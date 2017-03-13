@@ -1,14 +1,8 @@
 <?php session_start(); ?>
 <?php include 'header.php' ?>
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 
 <style>
-
-*{padding:0px;margin:0px;}
-
-body{
-	min-width: 700px;
-    background-repeat: no-repeat;
-}
 
 .container{
     background-color: #2980b9;
@@ -83,32 +77,21 @@ h1 {
 </style>
 
 <body>
+    
+    <h1 class='elegantshadow'>Community Forum</h1>
+    <?php include 'navbar.php' ?>
 
-<h1 class='elegantshadow'>Community Forum</h1>
+    <br>
 
-<?php include 'navbar.php' ?>
+    <?php include '../private/connection/fquestion_connection.php' ?>
 
-<br>
+    <?php 
+    $sql="SELECT * FROM $tbl_name ORDER BY id DESC";
+    // OREDER BY id DESC is order result by descending
+    $result=mysql_query($sql);
+    ?>
 
-<?php
- 
-$host="localhost"; // Host name 
-$username="root"; // Mysql username 
-$password=""; // Mysql password 
-$db_name="coding_society"; // Database name 
-$tbl_name="fquestions"; // Table name 
- 
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
- 
-$sql="SELECT * FROM $tbl_name ORDER BY id DESC";
-// OREDER BY id DESC is order result by descending
- 
-$result=mysql_query($sql);
-?>
- 
-  <div class="table">
+    <div class="table">
     
     <div class="row header">
       <div class="cell">
@@ -133,7 +116,7 @@ $result=mysql_query($sql);
 while($rows = mysql_fetch_array($result)){
 ?>
 
-<div class="row">
+    <div class="row">
       <div class="cell">
         <?php echo $rows['id']; ?>
       </div>
@@ -158,7 +141,7 @@ mysql_close();
 </div>
  
 <div style="float: right; margin: 5px;">
-<a href="views/new_topic.php"><strong>Create New Topic</strong></a>
+<a href="../public/views/new_topic.php"><strong>Create New Topic</strong></a>
 </div> 
 
 </body>
