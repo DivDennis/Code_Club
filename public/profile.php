@@ -146,11 +146,11 @@ img{
   <li class="font"><a href="team.php">About Us</a></li>
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
-  <li class="club"><a href="userdb/logout.php">Logout</a></li>
+  <li class="club"><a href="service/logout.php">Logout</a></li>
   <?php if(isset($_SESSION['user_uname'])): ?>
       <li class="club"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
       <?php endif; 
-      ?>
+  ?>
       
 </ul>
 </div>
