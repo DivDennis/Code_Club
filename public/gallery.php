@@ -103,7 +103,7 @@ h2{
 
 <h1 class='elegantshadow'>Gallery</h1>
 
-<?php include 'navbar.php' ?>
+<?php include 'nav.php' ?>
 
 <div class="row">
 

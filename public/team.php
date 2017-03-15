@@ -45,7 +45,7 @@ img{
 
 <body>
 
-<?php include 'navbar.php' ?>
+<?php include 'nav.php' ?>
 
 <div class="row">
 

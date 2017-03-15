@@ -79,7 +79,7 @@ h1 {
 <body>
     
     <h1 class='elegantshadow'>Community Forum</h1>
-    <?php include 'navbar.php' ?>
+    <?php include 'nav.php' ?>
 
     <br>
 

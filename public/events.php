@@ -11,7 +11,7 @@ body {
 
 </style>
 
- <?php include 'navbar.php'; ?>
+ <?php include 'nav.php'; ?>
 
 <body>
 

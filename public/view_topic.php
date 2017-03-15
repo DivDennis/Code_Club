@@ -10,7 +10,7 @@
 
 </style>
 
-<?php include './navbar.php' ?>
+<?php include './nav.php' ?>
 
 <body>
 
@@ -136,6 +136,9 @@ $sql5="update $tbl_name set view='$addview' WHERE id='$id'";
 $result5=mysql_query($sql5);
 mysql_close();
 ?>
+
+
+<?php include './views/response.php' ?>
 
 </div>
 </body>

@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include 'header.php' ?>
 
-<?php 
+<?php
 
 if (isset($_SESSION ['user_uname'])) {
   # user is logged in
@@ -24,7 +24,7 @@ else
 *{padding:0px;margin:0px;}
 
 body {
-  margin:0px; 
+  margin:0px;
   font: 16px "segoe ui";
   color: white;
   background-color: #55acee;
@@ -136,7 +136,7 @@ img{
 </style>
 
 <body>
-    
+
     <div class="navi" >
 <div id="nav">
   <ul>
@@ -149,12 +149,14 @@ img{
   <li class="club"><a href="service/logout.php">Logout</a></li>
   <?php if(isset($_SESSION['user_uname'])): ?>
       <li class="club"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
-      <?php endif; 
+      <?php endif;
   ?>
-      
+
 </ul>
 </div>
 </div>
+
+<!-- ?php include '../private/connection/users_connection.php'; ?> -->
 
 <div class="profile">
 <div class="opaque">
@@ -168,7 +170,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 
   <div class="profileinfo">
-    <p><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;User Name: lorem Ipsum</p>
+    <p><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;User Name: Lorem Ipsum</p>
     <br>
     <br>
     <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Name: Lorem Ipsum</p>
@@ -182,7 +184,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <br>
     <p><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;Proficient In: Web Development, Java, C# </p>
 
-    <a href="editprofile.php">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a>
+    <a href="./views/editprofile.php">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a>
 
   </div>
 </div>
