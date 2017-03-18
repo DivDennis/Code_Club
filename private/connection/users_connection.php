@@ -1,13 +1,15 @@
-<?php 
+<?php
 
-$host="localhost"; // Host name 
-$username="root"; // Mysql username 
-$password=""; // Mysql password 
-$db_name="coding_society"; // Database name 
-$tbl_name="users"; // Table name 
- 
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "coding_society";
+$tbl_name="users";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>

@@ -19,16 +19,18 @@ if (!empty($row)) {
 	if(Security::generateHash($psw, $row['salt']) != $row['psw'] ){
 		//echo $err;
 		header("Location: ../index.php?error=1");
-	}else{
+	}
+else{
 
 		$_SESSION ['is_logged_in'] = true;
-		$_SESSION['user_uname'] = $uname;
-		
+		$_SESSION['user_uname'] = $row['uname'];
+		$_SESSION['userId'] = $row['id'];
+
 		header("Location: ../profile.php");
 
 	}
 }
-else{ 
+else{
 		//echo $err;
 		header("Location: ../index.php?error=1");
 }

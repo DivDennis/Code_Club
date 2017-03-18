@@ -177,8 +177,8 @@ $rows=mysql_fetch_array($result);
 
 <div class="profile">
 <div class="opaque">
-<h3>+ Bio</h3>
-<p class="bio"><?php echo $rows['bio']; ?></p>
+<h3>+ Welcome</h3>
+<p class="bio">Hello. Welcome back administrator.</p>
 
   <div class="image">
   <img src="img/profile_avatar.png">

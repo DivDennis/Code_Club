@@ -4,7 +4,7 @@
 
 .container{
     width:100%;
-} 
+}
 
 ul {
     list-style-type: none !important;
@@ -44,12 +44,12 @@ li a:hover:not(.active) {
       <div class="container">
           <div id="nav">
             <ul>
-              <li class="font"><a class="active" href="index.php">Home</a></li>
-              <li class="font"><a href="forum.php">Forum</a></li>
-              <li class="font"><a href="events.php">Events</a></li>
-              <li class="font"><a href="team.php">About Us</a></li>
-              <li class="font"><a href="lesson.php">Lessons</a></li>
-              <li class="font"><a href="gallery.php">Gallery</a></li>
+              <li class="font"><a class="active" href="../index.php">Home</a></li>
+              <li class="font"><a href="../forum.php">Forum</a></li>
+              <li class="font"><a href="../events.php">Events</a></li>
+              <li class="font"><a href="../team.php">About Us</a></li>
+              <li class="font"><a href="../lesson.php">Lessons</a></li>
+              <li class="font"><a href="../gallery.php">Gallery</a></li>
 
               <?php if(isset($_SESSION['user_uname'])): ?>
                 <li class="profile"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>

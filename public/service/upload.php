@@ -2,19 +2,21 @@
 
 include '../../private/connection/users_connection.php';
 
-$id='1';
-$mysqli = new mysqli('localhost' , 'root' , '' , 'coding_society');
-$query = $mysqli->query("select * from users where id='$id' limit 0,1");
-$row = $query -> fetch_assoc();
+$id = $_GET['id'];
+$name=$_POST['name'];
+$birthdate=$_POST['birthdate'];
+$skills=$_POST['skills'];
+$bio=$_POST['bio'];
 
-if (isset($_POST['update'])){
+$sql = "UPDATE $tbl_name SET name='".$name."' , birthdate='".$birthdate."', skills='".$skills."', bio='".$bio."' WHERE id=".$id."";
 
- $id=$_POST['id'];
- $name = $_POST['name'];
- $birthdate = $_POST['birthdate'];
- $skills = $_POST['skills'];
- $bio = $_POST['bio'];
- $result = $mysqli -> $query(" update users set name= '$name ' , birthdate='$birthdate ' , skills='$skills ' , bio= '$bio ' where id='$id'  ");
- }
+if ($conn->query($sql) === TRUE) {
+    header("Location: ../profile.php");
 
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+
+$conn->close();
 ?>
