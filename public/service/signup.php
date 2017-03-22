@@ -21,8 +21,8 @@ $password = Security::generateHash($psw, $salt);
 
 
 
-$sql = "INSERT INTO users (uname, email, psw , salt) 
-VALUES ('$uname', '$email', '$password' , '$salt')";
+$sql = "INSERT INTO users (uname, email, psw , salt, admin_level)
+VALUES ('$uname', '$email', '$password' , '$salt', 2)";
 
 
 $results = $conn->query($sql);

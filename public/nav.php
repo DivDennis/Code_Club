@@ -43,7 +43,6 @@ li a:hover:not(.active) {
  <body>
 
  <div class="container">
-
 <div class="navi" >
 <div id="nav">
   <ul>
@@ -53,9 +52,14 @@ li a:hover:not(.active) {
   <li class="font"><a href="team.php">Meet The Team</a></li>
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
-   <?php if(isset($_SESSION['user_uname'])): ?>
-                <li class="profile"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
-              <?php endif; ?>
+
+  <?php if($_SESSION['admin_level']==2): ?>
+    <li class="profile"><a href="./profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
+  <?php endif; ?>
+
+  <?php if($_SESSION['admin_level']==1): ?>
+    <li class="profile"><a href="./admin_profile.php"> My Account: <?=$_SESSION['user_uname']?></a></li>
+  <?php endif; ?>
 
 </ul>
 </div>

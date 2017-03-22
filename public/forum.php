@@ -77,7 +77,7 @@ h1 {
 </style>
 
 <body>
-    
+
     <h1 class='elegantshadow'>Community Forum</h1>
     <?php include 'nav.php' ?>
 
@@ -85,14 +85,14 @@ h1 {
 
     <?php include '../private/connection/fquestion_connection.php' ?>
 
-    <?php 
+    <?php
     $sql="SELECT * FROM $tbl_name ORDER BY id DESC";
     // OREDER BY id DESC is order result by descending
     $result=mysql_query($sql);
     ?>
 
     <div class="table">
-    
+
     <div class="row header">
       <div class="cell">
        #
@@ -111,7 +111,7 @@ h1 {
       </div>
     </div>
 
-<?php 
+<?php
 // Start looping table row
 while($rows = mysql_fetch_array($result)){
 ?>
@@ -134,14 +134,14 @@ while($rows = mysql_fetch_array($result)){
       </div>
     </div>
 <?php
-// Exit looping and close connection 
+// Exit looping and close connection
 }
 mysql_close();
 ?>
 </div>
- 
+
 <div style="float: right; margin: 5px;">
 <a href="../public/views/new_topic.php"><strong>Create New Topic</strong></a>
-</div> 
+</div>
 
 </body>

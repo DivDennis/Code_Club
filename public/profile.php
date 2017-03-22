@@ -149,8 +149,9 @@ img{
   <li class="club"><a href="service/logout.php">Logout</a></li>
   <?php if(isset($_SESSION['user_uname'])): ?>
       <li class="club"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
-      <?php endif;
-  ?>
+      <?php endif;  ?>
+      <li class="club"><a href="./find_users.php">Search</a>
+
 
 </ul>
 </div>
@@ -168,7 +169,13 @@ mysql_connect("$host", "$username", "$password")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
 // get value of id that sent from address bar
-$id=$_SESSION['userId'] ;
+if(isset($_GET['id'])){
+  $id=$_GET['id'] ;
+}else{
+  $id=$_SESSION['userId'] ;
+}
+
+
 $sql="SELECT * FROM $tbl_name WHERE id='$id'";
 $result=mysql_query($sql);
 $rows=mysql_fetch_array($result);

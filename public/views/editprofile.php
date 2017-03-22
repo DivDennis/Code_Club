@@ -21,7 +21,7 @@
 
 
 
-<form action="../service/upload.php?id=<?=$_SESSION['userId']?>" method="POST">
+<form action="../service/upload.php?id=<?=$_SESSION['userId']?>" method="POST" >
 
 
 

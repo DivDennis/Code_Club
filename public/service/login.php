@@ -8,7 +8,7 @@ $uname = $_POST['uname'];
 $psw = $_POST['psw'];
 
 
-$sql = " SELECT uname, email, id, psw, salt FROM users WHERE uname='".$uname."' ";
+$sql = " SELECT admin_level, uname, email, id, psw, salt FROM users WHERE uname='".$uname."' ";
 
 $results = $conn->query($sql);
 
@@ -25,8 +25,15 @@ else{
 		$_SESSION ['is_logged_in'] = true;
 		$_SESSION['user_uname'] = $row['uname'];
 		$_SESSION['userId'] = $row['id'];
+    $_SESSION['admin_level'] =  $row['admin_level'];
 
-		header("Location: ../profile.php");
+		if($row['admin_level'] == 2){
+			header("Location: ../profile.php");
+	  }
+
+		else{
+			header("Location: ../admin_profile.php");
+		}
 
 	}
 }

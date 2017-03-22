@@ -133,6 +133,10 @@ img{
     padding-top:20px;
   }
 
+.button{
+  float: right;
+
+}
 </style>
 
 <body>
@@ -168,7 +172,13 @@ mysql_connect("$host", "$username", "$password")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
 // get value of id that sent from address bar
-$id=$_SESSION['userId'] ;
+// get value of id that sent from address bar
+if(isset($_GET['id'])){
+  $id=$_GET['id'] ;
+}else{
+  $id=$_SESSION['userId'] ;
+}
+
 $sql="SELECT * FROM $tbl_name WHERE id='$id'";
 $result=mysql_query($sql);
 $rows=mysql_fetch_array($result);
@@ -188,19 +198,12 @@ $rows=mysql_fetch_array($result);
     <p><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;User Name:  <?php echo $rows['uname']; ?></p>
     <br>
     <br>
-    <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Name:   <?php echo $rows['name']; ?></p>
+    <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;View All Users<a class="button" href="./views/view_users.php">View&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a></p>
     <br>
     <br>
-    <p><i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;Date of Birth:   <?php echo $rows['birthdate']; ?></p>
+    <p><i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;Add New Lesson<a class="button" href="./views/new_lesson.php">Add&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a></p>
     <br>
     <br>
-    <p><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp;Email Address:  <?php echo $rows['email']; ?></p>
-    <br>
-    <br>
-    <p><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;Proficient In:   <?php echo $rows['skills'];  ?></p>
-
-    <a href="./views/editprofile.php">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a>
-
   </div>
 </div>
 </div>

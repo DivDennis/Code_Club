@@ -1,8 +1,8 @@
 <?php
-/** 
+/**
  * Database model
  */
-public class Database{
+ class Database{
     private static $instance = null;
 
     /**
@@ -12,8 +12,8 @@ public class Database{
     public static function getInstance(){
         if(self::$instance == null){
              self::$instance = new Mysqli("localhost", "root", "" , "coding_society");
-            if ($mysqli->connect_errno) {
-                echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+            if (self::$instance->connect_errno) {
+                echo "Failed to connect to MySQL: (" . self::$instance->connect_errno . ") " . self::$instance->connect_error;
             }
         }
         return self::$instance;

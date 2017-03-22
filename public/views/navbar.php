@@ -45,22 +45,22 @@ li a:hover:not(.active) {
           <div id="nav">
             <ul>
               <li class="font"><a class="active" href="../index.php">Home</a></li>
-              <li class="font"><a href="../forum.php">Forum</a></li>
-              <li class="font"><a href="../events.php">Events</a></li>
-              <li class="font"><a href="../team.php">About Us</a></li>
-              <li class="font"><a href="../lesson.php">Lessons</a></li>
-              <li class="font"><a href="../gallery.php">Gallery</a></li>
+              <li class="font"><a href="../../public/forum.php">Forum</a></li>
+              <li class="font"><a href="../../public/events.php">Events</a></li>
+              <li class="font"><a href="../../public/team.php">About Us</a></li>
+              <li class="font"><a href="../../public/lesson.php">Lessons</a></li>
+              <li class="font"><a href="../../public/gallery.php">Gallery</a></li>
 
-              <?php if(isset($_SESSION['user_uname'])): ?>
-                <li class="profile"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
+              <?php if(isset($_SESSION['admin_level']==2)): ?>
+                <li class="profile"><a href="../../public/profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
+              <?php endif; ?>
+
+              <?php if(isset($_SESSION['admin_level']==1)): ?>
+                <li class="profile"><a href="../../public/admin_profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
               <?php endif; ?>
 
 
-              <?php if(!isset($_SESSION['user_uname'])):?>
-              <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 
-              <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
-              <?php endIf;?>
             </ul>
           </div>
       </div>
