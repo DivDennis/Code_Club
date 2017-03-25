@@ -1,23 +1,18 @@
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/style.css">
 
-<style>
-
-
-</style>
 
 <br>
 <br>
 
-<div class="row">
-<div class="col-md-3"></div>
-
-<div class='col-md-6'>
+<center>
+<div class="comments">
 <div class="panel panel-default">
   <div class="panel-heading">
    <center <h4 class="panel-title">Create Response</h4> </center>
   </div>
   <div class="panel-body">
-<table width="800" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#3498db">
+<table width="800" border="0" cellpadding="0" cellspacing="1" bgcolor="#3498db">
 <tr>
 <form name="form1" method="post" action="service/add_response.php">
 <td>
@@ -25,7 +20,7 @@
 <tr>
 <td width="5%"><strong>Name</strong></td>
 <td width="0%">:</td>
-<td width="90%"><input name="a_name" type="text" id="a_name" size="80" required></td>
+<td width="90%"><input name="a_name" type="text" id="a_name" size="80" border-radius="50%" required></td>
 </tr>
 <tr>
 <td><strong>Email</strong></td>
@@ -50,6 +45,4 @@
 </div>
  </div>
 </div>
-
-<div class="col-md-3"></div>
-<div>
+</center>

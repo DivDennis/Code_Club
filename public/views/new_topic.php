@@ -1,29 +1,11 @@
 <?php session_start(); ?>
 <?php include '../header.php' ?>
+<link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
 
-<style> 
-
-.container{
-    background-color: #2980b9;
-}
-
-.heading{
-    color:  #2980b9;
-    text-align: center;
-    padding-bottom: 2%;
-}
-
-.new_topic_form{
-    padding-top: 4%;
-    padding-right: 90px;
-} 
-
-</style>
-
 <body>
-    
-    <?php include './navbar.php' ?>
+
+  <?php include './navbar.php' ?>
 
 <table>
 
@@ -60,7 +42,7 @@
       <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
     </div>
   </div>
-  
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" name="Submit" value="Submit" class="btn btn-default">Submit</button>
@@ -70,8 +52,8 @@
 </div>
 
 </form>
-    
-</table>    
+
+</table>
 
 
 

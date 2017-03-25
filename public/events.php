@@ -1,12 +1,11 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
+<link rel="stylesheet" href="./css/style.css">
 
-<style> 
+<style>
 
 body {
-    min-width: 700px;
     background-color: #2980b9;
-    background-repeat: no-repeat;
 }
 
 </style>

@@ -1,14 +1,9 @@
-<?php include 'header.php' ?>
+<?php include 'nav.php' ?>
 
 <body>
-
-<h3>Your sign up was succesful. Click the button to be redirected to the homepage to sign in.</h3>
-
+<h3>Thanks For Signing Up</h3>
 <br>
-
-<button>
-	<a href=".\index.php">Click Here</a>
-</button>
-
-</body>
-</html>
+<p> Click below to login </p>
+<br>
+<a href="./index.php">Click Here</a>
+<body>

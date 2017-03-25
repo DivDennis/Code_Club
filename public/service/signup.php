@@ -28,6 +28,7 @@ VALUES ('$uname', '$email', '$password' , '$salt', 2)";
 $results = $conn->query($sql);
 
 //redirect user to a success page
-header("Location: ..\signupredirect.php");
+echo "Succesful";
+header("Location: ..\index.php");
 
 ?>

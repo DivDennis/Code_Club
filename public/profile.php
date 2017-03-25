@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php include 'header.php' ?>
+<link rel="stylesheet" href="./css/profile-style.css">
 
 <?php
 
@@ -18,123 +19,6 @@ else
 
  ?>
 
-
-<style>
-
-*{padding:0px;margin:0px;}
-
-body {
-  margin:0px;
-  font: 16px "segoe ui";
-  color: white;
-  background-color: #55acee;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: Helvetica;
-    background-color: #0077B5;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: "lato", sans-serif;
-}
-
-li a:hover:not(.active) {
-    background-color:#2980b9 ;
-}
-
-.navi{
-  width:100%;
-  margin:0 auto;
-  text-align:center;
-}
-
-#nav{
-  background-color:#34465d;
-}
-
-.club{
-    float: right;
-}
-
-.head{
-  margin-top: 20px;
-}
-
-.profile{
-  width:1000px;
-  padding-top: 50px;
-  margin: 0 auto;
-}
-
-.profile .bio{
-  width: 700px;
-}
-
-.image{
-  padding-top: 40px;
-  width: 40%;
-  float: left;
-}
-
-.profileinfo{
-  padding-top: 60px;
-  padding-left: 50px;
-  width: 45%;
-  float: left;
-}
-
-.profileinfo p{
-  border-style: solid;
-  border-width: 1px;
-  border-top: 0px;
-  border-left: 0px;
-  border-right:0px;
-}
-
-img{
-  width:300px;
-  height:300px;
-  border-radius: 50%;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #0077B5;
-}
-
-.opaque{
-  padding: 20px;
-  padding-left: 70px;
-  opacity: .8;
-  background-color: #0077b5;
-  height: 470px;
-}
-
-.image a{
-  padding-left: 145px;
-  color: white;
-  }
-
-.profileinfo a{
-    float: right;
-    color: white;
-    padding-top:20px;
-  }
-
-</style>
-
 <body>
 
     <div class="navi" >
@@ -143,14 +27,15 @@ img{
   <li class="font"><a href="index.php">Home</a></li>
   <li class="font"><a href="forum.php">Forum</a></li>
   <li class="font"><a href="events.php">Events</a></li>
-  <li class="font"><a href="team.php">About Us</a></li>
+  <li class="font"><a href="team.php">Meet The Team</a></li>
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
+
   <li class="club"><a href="service/logout.php">Logout</a></li>
   <?php if(isset($_SESSION['user_uname'])): ?>
       <li class="club"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
       <?php endif;  ?>
-      <li class="club"><a href="./find_users.php">Search</a>
+      <li class="club"><a href="./find_users.php">Find Friends</a>
 
 
 </ul>
@@ -188,7 +73,11 @@ $rows=mysql_fetch_array($result);
 <p class="bio"><?php echo $rows['bio']; ?></p>
 
   <div class="image">
-  <img src="img/profile_avatar.png">
+    <?php if ($rows['photo'] !== null): ?>
+  <img src="./photos/<?= $rows['photo'];?>">
+  <?php else: ?>
+    <img src="./img/profile_avatar.png" alt="">
+    <?php endif; ?>
   </div>
 
   <div class="profileinfo">
@@ -206,7 +95,17 @@ $rows=mysql_fetch_array($result);
     <br>
     <p><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;Proficient In:   <?php echo $rows['skills'];  ?></p>
 
-    <a href="./views/editprofile.php">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a>
+    <?php
+
+
+    if($_SESSION['user_uname']==$rows['uname']) {
+      ?>
+      <a href="./views/editprofile.php">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a>
+    <?php
+    } else {
+        /* Unable to edit profile */
+    }
+    ?>
 
   </div>
 </div>

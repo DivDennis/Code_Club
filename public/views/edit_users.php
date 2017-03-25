@@ -1,31 +1,21 @@
 <?php session_start(); ?>
 <?php
 include '../header.php';
- include '../../private/classes/Database.php';
-
+include '../../private/classes/Database.php';
 ?>
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/style.css">
 
 <?php
 include('../../private/connection/admin_connection.php');
 ?>
 
-<style>
-
-h1{
-  font-family: helvetica;
-  text-align: center;
-}
-
-.container{
-  background-color:  #2980b9;
-}
-
-</style>
-
 <body>
+
 <?php include './navbar.php' ?>
 
+
+<div class="edit-body">
 <?php
 function renderForm($uname = '', $name ='', $birthdate = '', $admin_level= '', $error = '', $id = '')
 {
@@ -165,3 +155,7 @@ renderForm();
 // close the mysqli connection
 $mysqli->close();
 ?>
+
+
+</div>
+</body>

@@ -1,63 +1,7 @@
 <?php session_start(); ?>
 <?php include '../header.php' ?>
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
-
-<style>
-
-*{
-  padding: 0px;
-  margin: 0px;
-}
-
-@media screen and (max-width: 580px) {
-  .table {
-    display: block;
-    width: 100%;
-  }
-}
-
-.row {
-  display: table-row;
-  background: #f6f6f6;
-  width: 100%;
-}
-
-.row:nth-of-type(odd) {
-  background: #e9e9e9;
-}
-
-.row.header {
-  font-weight: 900;
-  color: #ffffff;
-  background: #3498db;
-}
-
-@media screen and (max-width: 580px) {
-  .row {
-    padding: 8px 0;
-    display: block;
-    width: 100%;
-  }
-}
-
-.cell {
-  padding: 6px 12px;
-  display: table-cell;
-  width: 200px;
-}
-
-@media screen and (max-width: 580px) {
-  .cell {
-    padding: 2px 12px;
-    display: block;
-  }
-}
-
-.container{
-    background-color: #2980b9;
-}
-
-</style>
+<link rel="stylesheet" href="../css/style.css">
 
 <body>
 <?php include './navbar.php' ?>

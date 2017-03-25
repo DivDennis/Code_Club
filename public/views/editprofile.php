@@ -2,14 +2,7 @@
 <?php include '../header.php' ?>
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../lib/bootstrap/js/bootstrap.min.js">
-
-<style>
-
-.container{
-    background-color: #2980b9;
-}
-
-</style>
+<link rel="stylesheet" href="../css/style.css">
 
 <body>
 
@@ -21,12 +14,20 @@
 
 
 
-<form action="../service/upload.php?id=<?=$_SESSION['userId']?>" method="POST" >
+<form action="../service/upload.php?id=<?=$_SESSION['userId']?>" method="POST" enctype="multipart/form-data">
 
 
 
 <h3>Personal info</h3>
 
+
+
+        <div class="form-group">
+            <label label-default="" class="col-lg-3 control-label label-default">Image:</label>
+            <div class="col-lg-8">
+    <input class="form-control" type="file" id="name" name="photo"   />
+            </div>
+        </div>
         <div class="form-group">
             <label label-default="" class="col-lg-3 control-label label-default">Name:</label>
             <div class="col-lg-8">
