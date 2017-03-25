@@ -1,8 +1,8 @@
+
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content animate" action="..\public\service\signup.php" method="POST">
     <div class="container">
-
      <label><b>Enter a Username</b></label>
       <input type="text" placeholder="Enter a Username" name="uname" required>
 
@@ -15,6 +15,8 @@
       <label><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="pswrepeat" oninput="check(this)" required>
       <input type="checkbox" checked="checked"> Remember me
+
+       <p id="exist_error" style="color: red; display: none;"> user already exist </p>
       <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
      <div class="clearfix">
         <button type="submit" class="signupbtn">Sign Up</button>
@@ -24,7 +26,7 @@
   </form>
 </div>
 
-<div id="id02" class="modal">  
+<div id="id02" class="modal">
   <form class="modal-content animate" action="..\public\service\login.php" method="POST">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -50,3 +52,23 @@
     </div>
   </form>
 </div>
+<?php
+ //show error message if user already exist
+  if(isset($_GET['error'])){
+      if($_GET['error']==2){
+        echo'<script type="text/javascript">
+                    document.getElementById("exist_error").style.display="block" ;
+                    document.getElementById("id01").style.display="block";
+                  </script>';
+      }
+  }
+  //show error message if username or password is incorrect
+  if(isset($_GET['error'])){
+      if($_GET['error']==1){
+        echo'<script type="text/javascript">
+                    document.getElementById("errText").style.display="block" ;
+                    document.getElementById("id02").style.display="block";
+                  </script>';
+      }
+  }
+?>

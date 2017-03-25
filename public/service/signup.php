@@ -1,13 +1,18 @@
 <?php
-include './database.php';
+include '../../private/classes/Database.php';
 require('../../private/classes/Security.php');
 
 $uname = $_POST['uname'];
 $email = $_POST['email'];
 $psw = $_POST['psw'];
-$pswrepeat = $_POST['psw-repeat'];
+$pswrepeat = $_POST['pswrepeat'];
 
-
+if($result = Database::getInstance()->query("SELECT * from users where uname = '$uname' or email = '$email'")){
+      $numOfRows = $result->num_rows;
+      if($numOfRows > 0){
+         header("Location: ..\index.php?error=2");
+      }
+}
 //check if passwords are equal
 if($psw != $pswrepeat){
     //read up on querystrings
@@ -25,10 +30,13 @@ $sql = "INSERT INTO users (uname, email, psw , salt, admin_level)
 VALUES ('$uname', '$email', '$password' , '$salt', 2)";
 
 
-$results = $conn->query($sql);
+if($result = Database::getInstance()->query($sql)){
+  //redirect user to a success page
+  echo "Succesful";
+  header("Location: ..\signupredirect.php");
+}
 
-//redirect user to a success page
-echo "Succesful";
-header("Location: ..\index.php");
+//display server error has occur
+
 
 ?>
