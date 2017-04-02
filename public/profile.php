@@ -30,6 +30,8 @@ else
   <li class="font"><a href="team.php">Meet The Team</a></li>
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
+  <li class="font"><a href="./games.php">Games</a></li>
+  <li class="font"><a href="./messages.php">Messages</a></li>
 
   <li class="club"><a href="service/logout.php">Logout</a></li>
   <?php if(isset($_SESSION['user_uname'])): ?>
@@ -37,10 +39,10 @@ else
       <?php endif;  ?>
       <li class="club"><a href="./find_users.php">Find Friends</a>
 
-
 </ul>
 </div>
 </div>
+
 
 <?php
 $host="localhost"; // Host name
