@@ -1,0 +1,132 @@
+.profile{
+    float: right;
+}
+
+*{padding:0px;margin:0px;}
+
+html{
+font-family: sans-serif;	
+color: black;
+
+}
+
+body{
+	min-width: 700px;
+    background-repeat: no-repeat;
+    }
+
+ul {
+    list-style-type: none;
+    margin: 0 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Helvetica;
+    background-color: #2980b9;
+
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "lato", sans-serif;
+}
+
+li a:hover:not(.active) {
+    background-color:#3498db ;
+}
+.navi{width:100%;
+margin:0 auto;
+text-align:center;
+
+}
+#nav{
+  background-color:#34495e;
+}
+
+
+.elegantshadow{
+    margin: 0 0 0 0;
+    text-align: center;
+    color:white;
+  background-color: #2980b9;
+  letter-spacing: .1em;
+  text-shadow: -1px -1px 1px white 2px 2px 1px #2980b9;
+  height: 13%;
+}
+
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 80px;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+
+.sub-nav, .sub-nav ul{
+     background-color: #eee;
+
+}
+.sub-nav, .sub-nav ul li a{
+    color : #2980b9;
+}
+.sub-nav, .sub-nav ul li a:hover{
+    color : #fff;
+}
+.contianer{
+   width:550px;margin:0 auto;text-align:center;
+}
+
+.sidenav{
+     float: left;
+    width: 350px;
+}
+
+
+#sidebar{
+    margin-top: 40px;
+    list-style-type: none;
+    min-width: 250px;
+    font-size: 30px;
+}
+
+#sidebar a{
+    color: #2c3e50;
+    font-size: 16px;
+    text-align: left;
+ }
+
+#sidebar ul li{
+    width: 100%;
+    display: block;
+    background-color: #fff;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.body{
+  float: left;
+  display: inline-block;
+  width: 900px;
+  margin-top: 40px;
+}
