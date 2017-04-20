@@ -1,6 +1,5 @@
 <?php
-
-public class Category{
+class Category{
     private $id;
     private $name;
 
