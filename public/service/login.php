@@ -11,7 +11,7 @@ $psw = $_POST['psw'];
 $sql = " SELECT admin_level, uname, email, id, psw, salt FROM users WHERE uname='".$uname."' ";
 
 $results = $conn->query($sql);
-
+var_dump($results);
 $row = $results->fetch_assoc();
 
 

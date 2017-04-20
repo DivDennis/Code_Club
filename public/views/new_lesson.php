@@ -43,7 +43,7 @@
   <div class="form-group">
     <label for="detail" class="col-sm-2 control-label">Lorem:</label>
     <div class="col-sm-10">
-      <input type="text" name="detail" class="form-control" id="detail" placeholder="Details" required>
+      <textarea id="details" type="text" name="detail" class="form-control" id="detail" required></textarea>
     </div>
   </div>
 
@@ -72,3 +72,10 @@
 </form>
 
 </table>
+
+<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+  <script>
+  tinymce.init({
+    selector: '#details'
+  });
+  </script>
