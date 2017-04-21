@@ -41,7 +41,7 @@ if($result = Database::getInstance()->query("SELECT * from categories")){
 
 <table>
 
-<form class="form-horizontal" name="form1" method="post" action="../service/add_new_topic.php">
+<form class="form-horizontal" name="form1" method="post" action="../service/create_lesson.php">
 
 <div class="new_topic_form">
 
