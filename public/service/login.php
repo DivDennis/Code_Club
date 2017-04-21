@@ -1,8 +1,9 @@
 <?php
+session_start();
 include './database.php';
 require('../../private/classes/Security.php');
 
-session_start();
+
 
 $uname = $_POST['uname'];
 $psw = $_POST['psw'];
