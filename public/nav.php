@@ -13,7 +13,7 @@
   <li class="font"><a href="team.php">Meet The Team</a></li>
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
-
+  <li class="font"><a href="about-us.php">About Us</a></li>
 <?php if (isset($_SESSION['admin_level'])): ?>
     <?php if($_SESSION['admin_level']==2): ?>
       <li class="profile"><a href="./profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>

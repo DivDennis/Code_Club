@@ -36,7 +36,7 @@ $rows=mysql_fetch_array($result);
   <!-- Default panel contents -->
   <div class="panel-heading">Comment:</div>
 
- <table>
+ <table class="table">
     <thead>
       <tr>
         <th><strong>Topic:</strong><?php echo $rows['topic']; ?></th>

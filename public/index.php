@@ -33,7 +33,6 @@
       </div>
 
     <!-- SCRIPTS -->
-<script type="text/javascript" src="js/signup.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript">
   function check(input){
@@ -56,4 +55,4 @@
 </body>
 </html>
 
-<?php include 'modals/login_signup.php' ?>
+<?php include 'modals/login.php' ?>
