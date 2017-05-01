@@ -1,0 +1,19 @@
+.top{
+    height:60%;
+    width:100%
+}
+.vtdi-mand{
+ margin-top: 180px;
+ margin-left: 200px;
+ float:left;
+}
+
+.program{
+    float:right;
+    margin-top: 40px;
+    margin-right:240px;
+}
+
+.bottom{
+    background-color: blue;
+}
