@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2017 at 01:10 PM
+-- Generation Time: Apr 26, 2017 at 02:00 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -31,17 +31,17 @@ CREATE TABLE `categories` (
   `Name` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `categories`
+-- Table structure for table `chat`
 --
 
-INSERT INTO `categories` (`ID`, `Name`) VALUES
-(1, 'Java'),
-(2, 'Html & Css'),
-(3, 'MySql'),
-(4, 'C'),
-(5, 'C#'),
-(6, 'Software Engineering');
+CREATE TABLE `chat` (
+  `user_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `sent-on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `fanswer` (
 --
 
 INSERT INTO `fanswer` (`question_id`, `a_id`, `a_name`, `a_email`, `a_answer`, `a_datetime`) VALUES
-(2, 1, '', '', '', '14/03/17 05:20:50');
+(1, 1, 'Divia Denniis', 'divia.deidre@gmail.com', 'A class is nothing but a blueprint or a template for creating different objects which defines its properties and behaviors. ', '25/03/17 04:48:51');
 
 -- --------------------------------------------------------
 
@@ -87,8 +87,8 @@ CREATE TABLE `fquestions` (
 --
 
 INSERT INTO `fquestions` (`id`, `topic`, `detail`, `name`, `email`, `datetime`, `view`, `reply`) VALUES
-(1, 'Java', 'What is a class?', 'Divia Dennis', 'divia.deidre@gmail.com', '13/03/17 06:51:07', 58, 3),
-(2, 'Java', 'What is a class?', 'Divia', 'divia.deidre@outlook.com', '13/03/17 09:20:58', 16, 1);
+(1, 'Java', 'What is a class?', 'Divia Dennis', 'divia.deidre@gmail.com', '24/03/17 10:55:23', 40, 1),
+(2, 'PHP', 'How do you redirect to another page?', 'Divia Dennis', 'divia.deidre@gmail.com', '24/03/17 10:58:58', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ INSERT INTO `fquestions` (`id`, `topic`, `detail`, `name`, `email`, `datetime`, 
 --
 
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
+  `id` int(11) NOT NULL,
   `email` varchar(500) NOT NULL,
   `psw` varchar(1000) NOT NULL,
   `uname` varchar(70) NOT NULL,
@@ -105,20 +105,23 @@ CREATE TABLE `users` (
   `birthdate` varchar(75) DEFAULT NULL,
   `skills` varchar(75) DEFAULT NULL,
   `bio` varchar(300) DEFAULT NULL,
-  `img` varchar(500) DEFAULT NULL,
-  `name` varchar(75) DEFAULT NULL
+  `photo` varchar(2000) DEFAULT NULL,
+  `name` varchar(75) DEFAULT NULL,
+  `admin_level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `psw`, `uname`, `salt`, `birthdate`, `skills`, `bio`, `img`, `name`) VALUES
-(17, 'yanikblake@gmail.com', 'b0822e47c3356f1e7cf2971ac2df3dbaf4ed9c32ae12c2780c39198d529fb168', 'Nik', '20577b0000', NULL, NULL, NULL, NULL, NULL),
-(19, 'wwe', 'a20892a30731413721756e26023522b97887e2f43b4adc6a62c83ee5d741dceb', 'wwe', '61fe1165f7', ' ', ' ', ' ', NULL, ' '),
-(20, 'r.martin1031@gmail.com', 'f5435401f2509764b12e2f1e91e303e77fd060edde14e7165b2eda8ec2b0cb48', 'rmartin', 'ece27727b3', '18-3-17', NULL, NULL, NULL, NULL),
-(21, 'diviv', '5e1d479142fe1df9d4b67776385c74ed64dda220244d1ed0f0b6c5456c1b8b05', 'Divia.', '9ef71c2511', NULL, NULL, NULL, NULL, NULL),
-(22, 'me', 'f161925800465a71b8812cf31c5593eee3dc62910551f6d8943a117df0d10c23', 'yaay', '62702a053d', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `email`, `psw`, `uname`, `salt`, `birthdate`, `skills`, `bio`, `photo`, `name`, `admin_level`) VALUES
+(1, 'divia.deidre@gmail.com', '50667c4647b5bf531bcfdfb366fa62744e0c4b054f972468cb92cf7ef5b96960', 'Divia', '834be48cc8', 'August 28, 1996', 'Web Development, PHP', 'The best way to predict the future is to create it.', 'divia.png', 'Divia Dennis', 1),
+(2, 'forbes.denton2020@gmail.com', '09a9993b6b6966afe92899a1ff8fb3e1917ef4322cde965a4f604f7f99303f5e', 'Abbz_Star', '415629e9ab', 'september 11,', 'Programming, Graphics Design, Communication, Interpersonal,  ', 'I am Awesome, Cute, Caring,loving,', 'abi.png', 'Abbigaye', 2),
+(4, 'ricardo.m.coleman@gmail.com', 'b876a3335474bc45b7aac478e3de70af57bf30614dccdf4f7c21da94f0e7562c', 'C4UT1ON', 'ac734ed196', '28/06/1996', 'Programming, sleeping, gaming, idling', 'im just a regular guy', 'ricardo.png', 'Ricardo Coleman', 2),
+(7, 'kirlizwell17@gmail.com', '66e8a957bff6261c4e83af8020bb69bac5cac2a1a7ec00bba39644a58f510d11', 'kirlizwell', '2b44323bd2', 'November 23, 1999', 'programming, web, typing, talking', 'im very crazy, creative and fun to be around ', 'kirdeen.png', 'Kirdeen Powell', 2),
+(8, 'divia.deidre@gmail.com', '8e8c687d47b5e7a57c5c28dfa4c98d186279e1ff73514788fe370dfe669db1b0', 'Divia ', '9ba5e3ce3a', NULL, NULL, NULL, NULL, NULL, 2),
+(9, 'test@test.com', 'aa899e94d8f7052c3eb0a2d1ec8358f96c577cbb840538679f5797084c303257', 'Test', 'b062412b7b', NULL, NULL, NULL, NULL, NULL, 2),
+(10, 'example@example.com', '22ee51a3343ed8d06a18f6e04c637bcf914b29da8ee41abf98b930554cdefc01', 'Tester', '1b9ba0fbf7', NULL, NULL, NULL, NULL, NULL, 2);
 
 --
 -- Indexes for dumped tables
@@ -156,7 +159,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `fquestions`
 --
@@ -166,7 +169,7 @@ ALTER TABLE `fquestions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
