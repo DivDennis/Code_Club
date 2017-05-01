@@ -1,8 +1,9 @@
 <?php
+session_start();
 include './database.php';
 require('../../private/classes/Security.php');
 
-session_start();
+
 
 $uname = $_POST['uname'];
 $psw = $_POST['psw'];
@@ -11,7 +12,7 @@ $psw = $_POST['psw'];
 $sql = " SELECT admin_level, uname, email, id, psw, salt FROM users WHERE uname='".$uname."' ";
 
 $results = $conn->query($sql);
-
+var_dump($results);
 $row = $results->fetch_assoc();
 
 

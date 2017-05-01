@@ -12,5 +12,4 @@
     <title>Code Club</title>
 
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
-
 </head>
