@@ -1,7 +1,8 @@
 .top{
     height:60%;
-    width:100%
+    width:100%;
 }
+
 .vtdi-mand{
  margin-top: 180px;
  margin-left: 200px;
@@ -15,5 +16,6 @@
 }
 
 .bottom{
+    width: 100%;
     background-color: blue;
 }
