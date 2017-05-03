@@ -48,7 +48,7 @@ if($result = Database::getInstance()->query("SELECT * from categories")){
     <h1 class="heading"> Create New Lesson </h1>
 
   <div class="form-group">
-    <label for="topic" class="col-sm-2 control-label">Area</label>
+    <label for="topic" class="col-sm-2 control-label">Area: </label>
     <div class="col-sm-10">
       <select name="category" class="form-control">
           <?php foreach($categories as $category): ?>
@@ -70,8 +70,6 @@ if($result = Database::getInstance()->query("SELECT * from categories")){
       <textarea id="details" type="text" name="detail" class="ckeditor" id="detail" required></textarea>
     </div>
   </div>
-
-
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" name="Submit" value="Submit" class="btn btn-default">Submit</button>
@@ -85,3 +83,9 @@ if($result = Database::getInstance()->query("SELECT * from categories")){
 </table>
 
 <script src='../lib/ckeditor/ckeditor.js'></script>
+<script>
+//config.extraPlugins = 'imageuploader';
+//CKEDITOR.editorConfig = function( config ) {
+ // config.extraPlugins = 'html5video,widget,widgetselection,clipboard,lineutils, imageuploader'
+//};
+</script>
