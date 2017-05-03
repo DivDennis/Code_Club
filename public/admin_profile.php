@@ -30,13 +30,13 @@ else
   <li class="font"><a href="team.php">Meet The Team</a></li>
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
+<li class="font"><a href="about-us.php">About Us</a></li>
 
   <li class="club"><a href="service/logout.php">Logout</a></li>
   <?php if(isset($_SESSION['user_uname'])): ?>
       <li class="club"><a href="./admin_profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
       <?php endif;
   ?>
-  <li class="club"><a href="./find_users.php">Find Friends</a>
 
 </ul>
 </div>
@@ -72,20 +72,12 @@ $rows=mysql_fetch_array($result);
 
 <h3>+ Welcome</h3>
 <div class="bio">
-  <?php if ($rows['bio'] !== null): ?>
-    <p class="bio"><?php echo $rows['bio']; ?></p>
-<?php else: ?>
 <p class="bio">Hello. Welcome back administrator.</p>
-  <?php endif; ?>
 </div>
 
 
 <div class="image">
-  <?php if ($rows['photo'] !== null): ?>
-<img src="./photos/<?= $rows['photo'];?>">
-<?php else: ?>
   <img src="./img/profile_avatar.png" alt="">
-  <?php endif; ?>
 </div>
 
   <div class="profileinfo">
@@ -93,11 +85,9 @@ $rows=mysql_fetch_array($result);
 <br>
     <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Name:   <?php echo $rows['name']; ?></p>
     <br>
-    <p><i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;Date of Birth:   <?php echo $rows['birthdate']; ?></p>
-    <br>
+    
     <p><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp;Email Address:  <?php echo $rows['email']; ?></p>
-    <br>
-    <p><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;Proficient In:   <?php echo $rows['skills'];  ?></p>
+    
 <br>
     <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;View All Users
       <?php
@@ -125,16 +115,6 @@ $rows=mysql_fetch_array($result);
               /* Unable to edit profile */
           }
           ?>
-
-    <?php
-    if($_SESSION['user_uname']==$rows['uname']) {
-      ?>
-      <a href="./views/editprofile.php">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a>
-    <?php
-    } else {
-        /* Unable to edit profile */
-    }
-    ?>
   </div>
 </div>
   </div>

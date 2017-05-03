@@ -2,47 +2,46 @@
 <link rel="stylesheet" href="./css/style.css">
 
 
-<br>
-<br>
+<table>
 
-<center>
-<div class="comments">
-<div class="panel panel-default">
-  <div class="panel-heading">
-   <center <h4 class="panel-title">Create Response</h4> </center>
+<form class="form-horizontal" name="form1" method="post" action="./service/add_response.php">
+
+<div class="new_topic_form">
+
+    <h2 align="center"> Create Response</h1>
+
+  <div class="form-group">
+    <label for="topic" class="col-sm-2 control-label">Topic:</label>
+    <div class="col-sm-10">
+      <input type="text" name="a_name" class="form-control" id="a_name" placeholder="Name" required>
+    </div>
   </div>
-  <div class="panel-body">
-<table width="800" border="0" cellpadding="0" cellspacing="1" bgcolor="#3498db">
-<tr>
-<form name="form1" method="post" action="service/add_response.php">
-<td>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-<tr>
-<td width="5%"><strong>Name</strong></td>
-<td width="0%">:</td>
-<td width="90%"><input name="a_name" type="text" id="a_name" size="80" border-radius="50%" required></td>
-</tr>
-<tr>
-<td><strong>Email</strong></td>
-<td>:</td>
-<td><input name="a_email" type="text" id="a_email" size="80" required></td>
-</tr>
-<tr>
-<td valign="top"><strong>Answer</strong></td>
-<td valign="top">:</td>
-<td><textarea name="a_answer" cols="81.5" rows="5" id="a_answer" required></textarea></td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td><input name="id" type="hidden" value="<?php echo $id; ?>"></td>
-<td><input type="submit" name="Submit" value="Submit">
-</tr>
-</table>
-</td>
+
+  <div class="form-group">
+    <label for="detail" class="col-sm-2 control-label">Details:</label>
+    <div class="col-sm-10">
+      <input type="text" name="a_email" class="form-control" id="a_email" placeholder="Email" required>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Name:</label>
+    <div class="col-sm-10">
+      <input type="text" name="a_answer" class="form-control" id="a_answer" placeholder="Answer" required>
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <input name="id" type="hidden" value="<?php echo $id; ?>">
+      <button type="submit" name="Submit" value="Submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+
+</div>
+
 </form>
-</tr>
+
 </table>
-</div>
- </div>
-</div>
-</center>
