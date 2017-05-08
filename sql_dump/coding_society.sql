@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2017 at 02:00 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: May 09, 2017 at 01:19 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,6 +30,18 @@ CREATE TABLE `categories` (
   `ID` int(11) NOT NULL,
   `Name` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`ID`, `Name`) VALUES
+(1, 'Java'),
+(2, 'Html & Css'),
+(3, 'MySql'),
+(4, 'C'),
+(5, 'C#'),
+(6, 'Software Engineering');
 
 -- --------------------------------------------------------
 
@@ -93,6 +105,29 @@ INSERT INTO `fquestions` (`id`, `topic`, `detail`, `name`, `email`, `datetime`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lessons`
+--
+
+CREATE TABLE `lessons` (
+  `id` int(11) NOT NULL,
+  `fk_category_id` int(11) NOT NULL,
+  `topic` varchar(120) NOT NULL,
+  `details` text NOT NULL,
+  `fk_user_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `fk_category_id`, `topic`, `details`, `fk_user_id`, `timestamp`) VALUES
+(1, 1, 'What is Java?', '<p>bbvb</p>', 1, '2017-05-08 19:29:00'),
+(2, 1, 'Yanik', '<ol><li><em><strong>fggfhghgg</strong></em></li></ol>', 1, '2017-05-08 23:17:31');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -146,6 +181,14 @@ ALTER TABLE `fquestions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `lessons`
+--
+ALTER TABLE `lessons`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_category_id` (`fk_category_id`),
+  ADD KEY `fk_user_id` (`fk_user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -156,15 +199,15 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `fquestions`
 --
 ALTER TABLE `fquestions`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `lessons`
+--
+ALTER TABLE `lessons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --

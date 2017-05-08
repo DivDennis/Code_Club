@@ -5,12 +5,11 @@ include '../../private/classes/Database.php';
 $categories = [];
 
 if($result = Database::getInstance()->query("SELECT * from categories")){
-      $i = 0;
-      while($row = $result->fetch_assoc()){
-          $categories[$i] = $row;
-          $i++;
-      };
-      
+    $i = 0;
+    while($row = $result->fetch_assoc()){
+        $categories[$i] = $row;
+        $i++;
+    };
 }
 ?>
 <?php include '../header.php' ?>
@@ -36,9 +35,7 @@ if($result = Database::getInstance()->query("SELECT * from categories")){
 </style>
 
 <body>
-
     <?php include './navbar.php' ?>
-
 <table>
 
 <form class="form-horizontal" name="form1" method="post" action="../service/create_lesson.php">

@@ -32,6 +32,7 @@ class Lesson{
     public function getCategory(){
         return $this->category;
     }
+    
     public function setCategory($category){
         $this->setCategory = $category;
     }

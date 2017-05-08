@@ -1,21 +1,47 @@
-<?php session_start(); ?>
+<?php 
+  session_start(); 
+  include '../private/classes/Database.php';
+?>
 
 <?php
-       $mysqli = new Mysqli("localhost", "root", "" , "coding_society");
-    if ($mysqli->connect_errno) {
-        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
-    if (!$result = $mysqli->query("Select * from categories")) {
-        echo "Selecting from categories failed: (" . $mysqli->errno . ") " . $mysqli->error;
-    }
-    
+    //get all categories to display in the submenu
+    $result = Database::getInstance()->query("Select * from categories");
     $sub_menu = [];
     $i = 0;
-    while($data = $result->fetch_assoc()){
-        $sub_menu[$i] = $data["Name"];
-        $i++;
+    if($result){
+        while($data = $result->fetch_assoc()){
+            $sub_menu[$i] = $data;
+            $i++;
+        }
     }
-    $mysqli->close(); 
+   
+    //reintialize counter
+    $i = 0;
+
+    //get all topic pertaining to a selected topic
+    $category_id = (isset($_GET['category'])) ? Database::getInstance()->escape_string($_GET['category']) : 1;
+    $result = Database::getInstance()->query("Select topic from lessons where fk_category_id = $category_id");
+    $topics = [];
+    if($result){
+        while($row = $result->fetch_assoc()){
+            $topics[$i] = $row["topic"];
+            $i++;
+        }
+    }
+
+    //reintialize counter
+    $i = 0;
+
+    $topic = (isset($_GET['topic']))?Database::getInstance()->escape_string($_GET['topic']): '';
+    //get a specific top details
+    $result = Database::getInstance()->query("select * from lessons where topic = '$topic' and fk_category_id = $category_id LIMIT 1");
+    $lesson = [];
+    if($result){
+        while($row = $result->fetch_assoc()){
+                $lesson = $row;
+        }
+    }
+
  ?>
 <html>
     <head>
@@ -36,8 +62,8 @@
   <li class="font"><a href="lesson.php">Lessons</a></li>
   <li class="font"><a href="gallery.php">Gallery</a></li>
    <?php if(isset($_SESSION['user_uname'])): ?>
-                <li class="profile"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
-              <?php endif; ?>
+        <li class="profile"><a href="profile.php"> My Account: <?= $_SESSION['user_uname']?></a></li>
+    <?php endif; ?>
 </ul>
 </div>
 </div>
@@ -46,7 +72,7 @@
  <div class="contianer">
   <ul id="topics"> 
     <?php foreach( $sub_menu as $menu): ?>
-       <li class="font" ><a href="#"><?= $menu ?></a></li>
+       <li class="font" ><?= "<a href='./lesson.php?category=".$menu["ID"]."'>".$menu["Name"]."</a>";?></li>
     <?php endforeach ?>
   </ul>
  </div>
@@ -56,9 +82,9 @@
 <div class="sidenav">
     <div id="sidebar" class="card card-2">
     <ul>
-    <li class="nav2"><a href="#">1 - What is Java</a></li>
-    <li class="nav2"><a href="#">2 - How to install Java</a></li>
-    <li class="nav2"><a href="#">3 - Basic Java Syntax</a></li>
+    <?php foreach($topics as $topic): ?>
+        <li class="nav2"><a href="<?='./lesson.php?category='.$category_id .'&topic='.$topic?>"><?= $topic ?></a></li>
+    <?php endforeach; ?>
     </ul>
     </div>
 </div>
@@ -66,47 +92,6 @@
 
 
 <div class="body">
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.lorem</p>  
-<br>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <br>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.lorem</p>
+  <?= (isset($lesson["details"]))?$lesson["details"]:"<h3>No lessons selected</h3>"; ?>
 </div>
 

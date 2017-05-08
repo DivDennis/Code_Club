@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+  session_start(); 
+  include '../private/classes/Database.php';
+
+?>
 <?php include 'header.php' ?>
 <link rel="stylesheet" href="./css/profile-style.css">
 
@@ -43,17 +47,7 @@ else
 </div>
 
 <?php
-$host="localhost"; // Host name
-$username="root"; // Mysql username
-$password=""; // Mysql password
-$db_name="coding_society"; // Database name
-$tbl_name="users"; // Table name
 
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect");
-mysql_select_db("$db_name")or die("cannot select DB");
-
-// get value of id that sent from address bar
 // get value of id that sent from address bar
 if(isset($_GET['id'])){
   $id=$_GET['id'] ;
@@ -61,9 +55,13 @@ if(isset($_GET['id'])){
   $id=$_SESSION['userId'] ;
 }
 
-$sql="SELECT * FROM $tbl_name WHERE id='$id'";
-$result=mysql_query($sql);
-$rows=mysql_fetch_array($result);
+$sql="SELECT * FROM users WHERE id='$id'";
+$result=Database::getInstance()->query($sql);
+if($result){
+  while($row = $result->fetch_assoc()){
+    $rows= $row;
+  }
+}
 ?>
 
 
