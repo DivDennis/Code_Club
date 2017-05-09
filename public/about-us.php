@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <link rel="stylesheet" href="./css/style-us.css">
 
 <body>

@@ -88,4 +88,11 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 </div>
 
+<div class="more pulse">
+<img src="./img/more.png" usemap="#More">
+<map name="More" id="More">
+    <area alt="" title="" href="./about-us.php" shape="poly" coords="20,16,104,17,102,75,22,76" />
+</map>
+  </div>
+
 </body>
