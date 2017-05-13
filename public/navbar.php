@@ -21,7 +21,7 @@
 
 
               <?php if(!isset($_SESSION['user_uname'])):?>
-              <button class="login" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
+              <button class="login" onclick="document.getElementById('id02').style.display='block'">Login</button>
               <?php endIf;?>
             </ul>
           </div>

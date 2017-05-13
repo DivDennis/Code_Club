@@ -30,7 +30,7 @@ $sql2="INSERT INTO $tbl_name(question_id, a_id, a_name, a_email, a_answer, a_dat
 $result2=mysql_query($sql2);
 
 if($result2){
-header('../view_topic.php');
+header('Location: ../view_topic.php?id='.$id);
 
 // If added new answer, add value +1 in reply column
 $tbl_name2="fquestions";

@@ -6,18 +6,14 @@
 <body>
 <?php include './navbar.php' ?>
 
-<div class="new-user">
-<a href="./add-new.php"> Add New User </a>
-</div>
-
 
 <?php
-include('../../private/connection/admin_connection.php');
+include('../../private/connection/fquestion_connection.php');
 
 $per_page = 50;
 
 // figure out the total pages in the database
-if ($result = $mysqli->query("SELECT * FROM users ORDER BY id"))
+if ($result = $mysqli->query("SELECT * FROM fquestions ORDER BY id"))
 {
 if ($result->num_rows != 0)
 {
@@ -60,7 +56,7 @@ echo $i . " ";
 }
 else
 {
-echo "<a href='view_users.php?page=$i'>$i</a> ";
+echo "<a href='view_topic.php?page=$i'>$i</a> ";
 }
 }
 echo "</p>";
@@ -74,19 +70,10 @@ echo "</p>";
    ID
   </div>
   <div class="cell">
-   Username
+   Topic
   </div>
   <div class="cell">
-    Name
-  </div>
-  <div class="cell">
-    Date of Birth
-  </div>
-  <div class="cell">
-    Administrative Level
-  </div>
-   <div class="cell">
-    Edit
+   Details
   </div>
   <div class="cell">
    Delete
@@ -110,22 +97,13 @@ $row = $result->fetch_row();
     <?php echo  $row[0]; ?>
   </div>
   <div class="cell">
-    <?php echo $row[3]; ?>
+    <?php echo $row[1]; ?>
+  </div>
+    <div class="cell">
+    <?php echo $row[2]; ?>
   </div>
   <div class="cell">
-    <?php echo $row[9]; ?>
-  </div>
-  <div class="cell">
-    <?php echo $row[5]; ?>
-  </div>
-  <div class="cell">
-    <?php echo $row[10]; ?>
-  </div>
-  <div class="cell">
-    <?php echo '<a href="./edit_users.php?id=' . $row[0] . '">Edit</a>' ?>
-  </div>
-  <div class="cell">
-    <?php echo '<a href="../service/delete_user.php?id=' . $row[0] . '">Delete</a>' ?>
+    <?php echo '<a href="../service/delete_topic.php?id=' . $row[0] . '">Delete</a>' ?>
  </div>
 </div>
 
@@ -154,3 +132,4 @@ $mysqli->close();
 
 ?>
 </body>
+</html>
