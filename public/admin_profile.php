@@ -23,8 +23,6 @@ else
 
  ?>
 
-<body>
-
     <div class="navi" >
 <div id="nav">
   <ul>
@@ -99,6 +97,41 @@ if($result){
           }
           ?>
 
+           <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;View All Forum Responses
+      <?php
+          if($_SESSION['user_uname']==$rows['uname']) {
+            ?>
+            <a class="button" href="./views/view_response.php">View&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a></p>
+            <br>
+            <?php
+          } else {
+              /* Unable to edit profile */
+          }
+          ?>
+
+           <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;View All Forum Topics
+      <?php
+          if($_SESSION['user_uname']==$rows['uname']) {
+            ?>
+            <a class="button" href="./views/view_topic.php">View&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a></p>
+            <br>
+            <?php
+          } else {
+              /* Unable to edit profile */
+          }
+          ?>
+
+    <p><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;View All Lessons
+      <?php
+          if($_SESSION['user_uname']==$rows['uname']) {
+            ?>
+            <a class="button" href="./views/view_lessons.php">View&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></a></p>
+            <br>
+            <?php
+          } else {
+              /* Unable to edit profile */
+          }
+          ?>
 
     <p>
     <i class="fa fa-id-card" aria-hidden="true"></i>&nbsp;Add New Lesson
@@ -113,6 +146,8 @@ if($result){
               /* Unable to edit profile */
           }
           ?>
+
+          
   </div>
 </div>
   </div>
@@ -120,3 +155,5 @@ if($result){
 
 
 </body>
+
+</html>

@@ -11,21 +11,14 @@
 <div class="container-fluid">
 
 <?php
-$host="localhost"; // Host name
-$username="root"; // Mysql username
-$password=""; // Mysql password
-$db_name="coding_society"; // Database name
-$tbl_name="fquestions"; // Table name
 
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect");
-mysql_select_db("$db_name")or die("cannot select DB");
+include '../private/classes/Database.php';
 
 // get value of id that sent from address bar
 $id=$_GET['id'];
-$sql="SELECT * FROM $tbl_name WHERE id='$id'";
-$result=mysql_query($sql);
-$rows=mysql_fetch_array($result);
+$sql="SELECT * FROM fquestions WHERE id=$id";
+$result=Database::getInstance()->query($sql);
+$rows=$result->fetch_assoc();
 ?>
 
 <br>
@@ -63,8 +56,8 @@ $rows=mysql_fetch_array($result);
 <?php
 $tbl_name2="fanswer"; // Switch to table "forum_answer"
 $sql2="SELECT * FROM $tbl_name2 WHERE question_id='$id'";
-$result2=mysql_query($sql2);
-while($rows=mysql_fetch_array($result2)){
+$result2=Database::getInstance()->query($sql2);
+while($rows=$result->fetch_assoc()){
 ?>
 
 <div class="comments">
@@ -99,23 +92,22 @@ while($rows=mysql_fetch_array($result2)){
 <?php
 }
 
-$sql3="SELECT view FROM $tbl_name WHERE id='$id'";
-$result3=mysql_query($sql3);
-$rows=mysql_fetch_array($result3);
+$sql3="SELECT view FROM fanswer WHERE id='$id'";
+$result3=Database::getInstance()->query($sql3);
+$rows=$result->fetch_assoc();
 $view=$rows['view'];
 
 // if have no counter value set counter = 1
 if(empty($view)){
 $view=1;
-$sql4="INSERT INTO $tbl_name(view) VALUES('$view') WHERE id='$id'";
-$result4=mysql_query($sql4);
+$sql4="INSERT INTO fanswer(view) VALUES('$view') WHERE id='$id'";
+$result4=Database::getInstance()->query($sql4);
 }
 
 // count more value
 $addview=$view+1;
-$sql5="update $tbl_name set view='$addview' WHERE id='$id'";
-$result5=mysql_query($sql5);
-mysql_close();
+$sql5="update fanswer set view='$addview' WHERE id='$id'";
+$result5=Database::getInstance()->query($sql5);
 ?>
 
 

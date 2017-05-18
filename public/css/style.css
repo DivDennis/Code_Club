@@ -360,41 +360,68 @@ margin-left: 300px;
   padding-right: 140px !important;
 }
 
-/*Password Recovery Style*/
+/*Events Style*/
+
+.events-style{
+    background-color: #2980b9;
+    height:90%;
+    width:100%;
+}
+
+/*About Style*/
+
+#container-us{
+    width: 100%;
+    height:90%;
+}
+
+.top{
+    width: 100%;
+    height: 60%;
+    background-image: url("../img/jamaica.png");
+}
+
+.welcome{
+    width: 300px;
+    height: 200px;
+    background-color: #2980b9;
+    color: white;
+    margin-right: 325px;
+    float: right;
+    margin-top: 60px;
+    padding:15px;
+    font-family: 'Franklin Gothic Book';
+}
+
+.welcome h2{
+    padding-bottom: 15px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.welcome p{
+    padding-left: 10px;
+}
+
+.bottom{
+ font-family: 'Franklin Gothic Book';
+ width: 100%;
+ margin-top: 20px;
+}
+
+.mission{
+    text-align: center;
+}
+
+.mission p{
+    font-style: italic;
+}
+
+.about{
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+}
 
 
-
-.form-signin {
- max-width: 330px;
- padding: 15px;
- margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
- margin-bottom: 10px;
-}
-.form-signin .checkbox {
- font-weight: normal;
-}
-.form-signin .form-control {
- position: relative;
- height: auto;
- -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-         box-sizing: border-box;
- padding: 10px;
- font-size: 16px;
-}
-.form-signin .form-control:focus {
- z-index: 2;
-}
-.form-signin input[type="email"] {
- margin-bottom: -1px;
- border-bottom-right-radius: 0;
- border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
- margin-bottom: 10px;
- border-top-left-radius: 0;
- border-top-right-radius: 0;
-}

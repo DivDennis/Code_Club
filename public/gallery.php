@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/style.css">
 
-<body>
 
 <h1 class='elegantshadow'>Gallery</h1>
 
@@ -59,3 +58,5 @@
 </div>
 
 </body>
+
+</html>

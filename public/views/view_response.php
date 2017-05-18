@@ -8,12 +8,12 @@
 
 
 <?php
-include('../../private/connection/fanswer_connection.php');
+ include '../../private/classes/Database.php';
 
 $per_page = 50;
 
 // figure out the total pages in the database
-if ($result = $mysqli->query("SELECT * FROM fanswer ORDER BY a_id"))
+if ($result = Database::getInstance()->query("SELECT * FROM fanswer ORDER BY a_id"))
 {
 if ($result->num_rows != 0)
 {
@@ -124,11 +124,10 @@ echo "No results to display!";
 // error with the query
 else
 {
-echo "Error: " . $mysqli->error;
+echo "Error: ";
 }
 
-// close database connection
-$mysqli->close();
+
 
 ?>
 </body>

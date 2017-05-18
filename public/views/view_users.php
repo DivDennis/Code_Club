@@ -6,10 +6,6 @@
 <body>
 <?php include './navbar.php' ?>
 
-<div class="new-user">
-<a href="./add-new.php"> Add New User </a>
-</div>
-
 
 <?php
 include('../../private/connection/admin_connection.php');
@@ -66,6 +62,10 @@ echo "<a href='view_users.php?page=$i'>$i</a> ";
 echo "</p>";
 ?>
 <br>
+
+<div class="new-user">
+<a href="./add-new.php"> Add New User </a>
+</div>
 
 <div class="table">
 
@@ -153,4 +153,4 @@ echo "Error: " . $mysqli->error;
 $mysqli->close();
 
 ?>
-</body>
+

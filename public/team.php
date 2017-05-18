@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/style.css">
 
-<body>
 
 <?php include 'nav.php' ?>
 
@@ -96,3 +95,5 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 
 </body>
+
+</html>

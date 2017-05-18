@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
 
-<body>
+
 
   <?php include './navbar.php' ?>
 

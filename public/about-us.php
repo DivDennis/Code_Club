@@ -1,9 +1,9 @@
 <?php session_start(); ?>
-<link rel="stylesheet" href="./css/style-us.css">
+<link rel="stylesheet" href="./css/style.css">
 
-<body>
+
 <?php include './nav.php' ?>
-    <div id="container">
+    <div id="container-us">
 
           <div class="top">
             <div class="welcome">
@@ -40,3 +40,5 @@
    
 
 </body>  
+
+</html>

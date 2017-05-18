@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/style.css">
 
-<body>
   <div class="container-fluid">
 
   <h1 class='elegantshadow'>Community Forum</h1>
@@ -13,15 +12,15 @@
 
       <br>
 
-      <?php include '../private/connection/fquestion_connection.php' ?>
+      <?php include '../private/classes/Database.php'; ?>
 
       <?php
 
-      $sql="SELECT * FROM $tbl_name ORDER BY id DESC";
+      $sql="SELECT * FROM fquestions ORDER BY id DESC";
 
       // OREDER BY id DESC is order result by descending
 
-      $result=mysql_query($sql);
+      $result=Database::getInstance()->query($sql);
 
       ?>
 
@@ -67,7 +66,7 @@
 
   // Start looping table row
 
-  while($rows = mysql_fetch_array($result)){
+  while($rows = $result->fetch_assoc()){
 
   ?>
 
@@ -113,7 +112,6 @@
 
   }
 
-  mysql_close();
 
   ?>
 
@@ -129,4 +127,7 @@
 
 
 </div>
+
   </body>
+
+  </html>

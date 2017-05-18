@@ -44,8 +44,8 @@
 
  ?>
 
-        <link rel="stylesheet" href="css/lesson.css">
-    <body>
+<?php include 'header.php' ?>
+<link rel="stylesheet" href="css/lesson.css">
         
 <h1 class='elegantshadow'>Lessons & Activites</h1>
 
@@ -72,6 +72,7 @@
 </ul>
 </div>
 </div>
+
 <div class="sub-nav">
  <div class="contianer">
   <ul id="topics"> 
@@ -99,3 +100,7 @@
   <?= (isset($lesson["details"]))?$lesson["details"]:"<h3>No lessons selected</h3>"; ?>
 </div>
 
+
+</body>
+
+</html>
